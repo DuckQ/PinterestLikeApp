@@ -1,0 +1,38 @@
+.form-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.form-wrapper__title {
+  text-align: center;
+  color: grey;
+  padding: 0 0 2rem 0;
+  margin: 0;
+}
+
+.form-wrapper form input {
+  display: block;
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin: 0;
+}
+
+.form-wrapper form div {
+  margin: 0 0 1.5rem;
+}
+
+.form-wrapper form *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.1rem rgb(87, 164, 252);
+}
+
+.form-wrapper form button {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  background: rgb(202, 35, 35);
+  color: white;
+  font-weight: bold;
+  border: none
+}

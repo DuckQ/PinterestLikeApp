@@ -1,0 +1,19 @@
+.error-msg {
+  font-size: 1.6rem;
+  color: red;
+}
+
+.has-error {
+  border: none;
+  box-shadow: 0 0 0.5rem rgb(255, 0, 0);
+}
+
+.has-error:focus {
+  border: 0.05rem solid rgb(97, 96, 96);
+  outline: none;
+  box-shadow: 0 0 0 0.1rem rgb(87, 164, 252);
+}
+
+.no-error {
+  border: 0.05rem solid rgb(97, 96, 96)
+}

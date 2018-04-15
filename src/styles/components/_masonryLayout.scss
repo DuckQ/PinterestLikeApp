@@ -1,0 +1,18 @@
+.grid {
+  margin: 0 20px;
+}
+
+.grid-sizer {
+  width: 20%;
+}
+
+.grid-item {
+  width: 20%;
+  padding: 0 10px 20px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  /* 5 columns for larger screens */
+  .grid-sizer, .grid-item { width: 33.33%; };
+  .grid-item {padding: 0 5px 10px 5px;}
+}
