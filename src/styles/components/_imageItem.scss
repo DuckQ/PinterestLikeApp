@@ -1,3 +1,51 @@
-.image-wrapper {
-  
+.post-wrapper {
+  position: relative;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem;
 }
+
+.image-container {
+  position: relative;
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.text-block {
+  display: none;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: $red;
+  border: solid 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: $s-size;
+}
+
+.test {
+  display: none;
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%;
+  height: 100%;
+  background: rgb(201, 200, 200);
+  border: none;
+  border-radius: 1rem;
+  opacity: 0.3;
+  cursor: zoom-in;
+}
+
+.post-wrapper:hover {
+  .test {
+    display: inherit;
+  }
+  .text-block {
+    display: inherit;
+  }
+}
+

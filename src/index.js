@@ -4,10 +4,10 @@ import AppRouter from './components/routes/AppRouter';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { Provider } from 'react-redux';
-import configureStore from './components/redux/store/configureStore';
-import { startLoadImages } from './components/redux/actions/imagesActions';
-import { startUpdateImages } from './components/redux/actions/updateImages';
-import { setCurrentUser } from './components/redux/actions/authActions';
+import configureStore from './redux/store/configureStore';
+import { startLoadImages } from './redux/actions/imagesActions';
+import { startUpdateImages } from './redux/actions/updateImages';
+import { setCurrentUser } from './redux/actions/authActions';
 import jwtDecode from 'jwt-decode';
 
 const store = configureStore();
