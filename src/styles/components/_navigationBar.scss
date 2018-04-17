@@ -1,10 +1,10 @@
-ul {
+.item1 ul, .item3 ul {
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-li {
+.item1 li, .item3 li  {
   list-style: none;
   margin: 0 auto;
 }
@@ -22,6 +22,8 @@ li {
 
 .item1 {
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .item2 {

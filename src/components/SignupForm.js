@@ -3,7 +3,8 @@ import Modal from 'react-modal';
 import validateInput from '../validation/signup';
 import { connect } from 'react-redux';
 import { userSignupRequest, isUserExist } from '../redux/actions/signupActions';
-import { setIsRegistering } from '../redux/actions/modalActions';
+import { setIsRegistering, setShowFlashMessage } from '../redux/actions/modalActions';
+import { addFlashMessage } from '../redux/actions/flashMessage';
 
 export class SignupForm extends Component {
   constructor(props) {
@@ -88,6 +89,11 @@ export class SignupForm extends Component {
             this.setState ({ errors: response.errors, isLoading: false });
           } else {
             this.props.setIsRegistering();
+            this.props.addFlashMessage({
+              type: 'success',
+              text: 'You signed up successfully. Welcome!'
+            });
+            this.props.setShowFlashMessage();
           }
         })
     }
@@ -173,4 +179,4 @@ export class SignupForm extends Component {
   }
 }
 
-export default connect(null, { userSignupRequest, isUserExist, setIsRegistering })(SignupForm);
+export default connect(null, { userSignupRequest, isUserExist, setIsRegistering, addFlashMessage, setShowFlashMessage})(SignupForm);

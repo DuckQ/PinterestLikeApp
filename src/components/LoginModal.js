@@ -21,7 +21,7 @@ const LoginModal = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isLogining: state.registration.isLogining
+    isLogining: state.modal.isLogining
   }
 }
 

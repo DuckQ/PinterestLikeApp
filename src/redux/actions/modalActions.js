@@ -5,3 +5,8 @@ export const setIsRegistering = () => ({
 export const setIsLogining = () => ({
   type: 'CALL_LOGIN_FORM'
 });
+
+export const setShowFlashMessage = () => ({
+  type: 'CALL_FLASHMESSAGE_FORM'
+});
+

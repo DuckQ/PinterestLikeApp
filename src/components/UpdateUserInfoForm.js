@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import validateInput from '../validation/patch';
 import jwtDecode from 'jwt-decode';
+import { addFlashMessage } from '../redux/actions/flashMessage';
+import { setShowFlashMessage } from '../redux/actions/modalActions';
+import { connect } from 'react-redux';
 
 class UpdateUserInfoForm extends Component {
   constructor(props) {
@@ -102,6 +105,11 @@ class UpdateUserInfoForm extends Component {
         .then(response => {
           if (response.status === 401) {
             this.props.logout();
+            this.props.addFlashMessage();
+            this.props.setShowFlashMessage({
+              type: 'error',
+              text: 'The authentication session has expired. Please sign-in again.'
+            });
           };
           return response.json(); 
         })
@@ -202,4 +210,4 @@ class UpdateUserInfoForm extends Component {
   }
 }
 
-export default UpdateUserInfoForm;
+export default connect(null, {addFlashMessage, setShowFlashMessage})(UpdateUserInfoForm);

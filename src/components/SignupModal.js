@@ -23,7 +23,7 @@ const SignupModal = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    isRegistering: state.registration.isRegistering
+    isRegistering: state.modal.isRegistering
   }
 }
 

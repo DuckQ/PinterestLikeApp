@@ -3,8 +3,9 @@ import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
 import imagesReducer from '../reducers/imagesReducer';
 import updateImagesReducer from '../reducers/updateImagesReducer';
-import registrationReducer from '../reducers/registrationReducer';
+import modalReducer from '../reducers/modalReducer';
 import authReducer from '../reducers/authReducer';
+import flashMessage from '../reducers/flashMessage';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -13,8 +14,9 @@ export default () => {
     combineReducers({
       images: imagesReducer,
       updateImages: updateImagesReducer,
-      registration: registrationReducer,
-      auth: authReducer
+      modal: modalReducer,
+      auth: authReducer,
+      flashMessage: flashMessage
     }), 
     composeEnhancers(applyMiddleware(thunk))
   );

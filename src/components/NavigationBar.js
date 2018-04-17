@@ -46,7 +46,7 @@ class NavigationBar extends Component {
     return (
       <nav>
         <div className="navigation" >
-          <div className="navigation-item item1" ><ul><li><NavLink to="/" > <div className="nav-btn home-btn" >Home</div></NavLink></li></ul></div>
+          <div className="navigation-item item1" ><NavLink to="/" ><div className="nav-btn home-btn" >Home</div></NavLink></div>
           <div className="navigation-item item2" ><SearchBar /></div>
           <div className="navigation-item item3" >{ isAuthenticated ? userLinks : guestLinks}</div>
         </div>
