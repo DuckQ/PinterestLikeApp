@@ -105,11 +105,11 @@ class UpdateUserInfoForm extends Component {
         .then(response => {
           if (response.status === 401) {
             this.props.logout();
-            this.props.addFlashMessage();
-            this.props.setShowFlashMessage({
+            this.props.addFlashMessage({
               type: 'error',
               text: 'The authentication session has expired. Please sign-in again.'
             });
+            this.props.setShowFlashMessage();
           };
           return response.json(); 
         })
