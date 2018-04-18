@@ -26,7 +26,7 @@
   font-size: $s-size;
 }
 
-.test {
+.post-link {
   display: none;
   position: absolute;
   top: 0; 
@@ -41,7 +41,7 @@
 }
 
 .post-wrapper:hover {
-  .test {
+  .post-link {
     display: inherit;
   }
   .text-block {

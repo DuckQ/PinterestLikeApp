@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loadSingleIMage } from '../redux/actions/imagesActions';
+import PageNotFound from './PageNotFound';
 
 class PostDetailesPage extends Component {
   constructor(props) {
@@ -10,14 +11,22 @@ class PostDetailesPage extends Component {
       postData: {
         source: '',
         image_url: ''
-      }
+      },
+      isIdExist: true
     }
   };
 
   componentWillMount() {
     const postId = this.props.location.pathname.split("/post/")[1];
     this.props.loadSingleIMage(postId)
-      .then(response => response.json())
+      .then(response => {
+        if (response.status === 404) {
+          this.setState({isIdExist: false})
+        } else {
+          this.setState({isIdExist: true})
+        }
+        return response.json();
+      })
       .then(response => {
         const postData = {
           source: '',
@@ -30,22 +39,23 @@ class PostDetailesPage extends Component {
   }
   
   render() {
-    return (
-      <div className="container" >
-        <div className="container__content" >
-          <div className="items" >
-            <div className="image-wrapper" >
-              <img  src={this.state.postData.image_url} alt=""/>
-            </div>
-            <div>
-            </div>
+    const pageContent = (
+      <div className="post-details-container" >
+        <div className="items" >
+          <div className="image-wrapper" >
+            <img  src={this.state.postData.image_url} alt=""/>
           </div>
-          <div className="items" >
-            <div className="form-wrapper" >
-            </div>
+        </div>
+        <div className="items" >
+          <div className="text-wrapper" >
+            <a href={this.state.postData.image_url} target="_blank"> Open in full size </a>
+            <p>If you want to see original post follow this link: <a href={this.state.postData.source} target="_blank">here</a></p>
           </div>
         </div>
       </div>
+    )
+    return (
+      <div> {this.state.isIdExist ? pageContent : <PageNotFound /> } </div>
     )
   }
 }
