@@ -63,6 +63,7 @@ class SearchBar extends Component {
     this.setState({
       value: newValue
     }, () => this.getValueForParent());
+    
   };
   
   onSuggestionsFetchRequested = ({ value }) => {
@@ -81,7 +82,8 @@ class SearchBar extends Component {
     this.props.clearImages();
     this.props.setDefaultPosition();
     this.props.startLoadImagesWithTag(this.state.value)
-    .then(() => this.props.startUpdateImages(20, 0))
+    .then(() => this.props.startUpdateImages(20, 0));
+    this.setState({ value: '' });
   };
 
   onKeyPress(e) {
@@ -89,7 +91,8 @@ class SearchBar extends Component {
       this.props.clearImages();
       this.props.setDefaultPosition();
       this.props.startLoadImagesWithTag(this.state.value)
-      .then(() => this.props.startUpdateImages(20, 0))
+      .then(() => this.props.startUpdateImages(20, 0));
+      this.setState({ value: '' });
     }
   };
 
