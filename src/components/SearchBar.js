@@ -99,7 +99,7 @@ class SearchBar extends Component {
   render() {
     const { value, suggestions } = this.state;
     const inputProps = {
-      placeholder: "Search",
+      placeholder: "Search (currently available tags: home, food, fashion, cats, nature)",
       value,
       onChange: this.onChange,
       onKeyPress: this.onKeyPress
