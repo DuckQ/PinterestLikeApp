@@ -31,6 +31,14 @@ class UpdateUserInfoForm extends Component {
 
   };
 
+  // set default avatar
+  componentWillMount() {
+    if(!this.props.user.userAvatar) {
+      const defaultAvatar = 'https://grand-vet.ru/wp-content/uploads/2017/11/default-avatar-250x250.png'
+      this.setState({currentAvatar: defaultAvatar})
+    }
+  }
+
   onUsernameChange(e) {
     const username = e.target.value;
     this.setState( prevState => ({
@@ -117,7 +125,6 @@ class UpdateUserInfoForm extends Component {
           if (response.errors) {
             this.setState ({ errors: response.errors, isLoading: false });
           } else {
-            console.log(response.token)
             this.props.setCurrentUser(jwtDecode(response.token));
             localStorage.setItem('jwtToken', response.token);
             this.setState ({ 
@@ -137,14 +144,14 @@ class UpdateUserInfoForm extends Component {
 
   render() {
     const { errors, isLoading } = this.state;
-
+    
     return (
       <div className="container" >
         <h2 className="title" >Change your personal information</h2>
         <div className="container__content" >
           <div className="items" >
             <div className="image-wrapper" >
-              <img  src={this.state.currentAvatar ? this.state.currentAvatar : `http://localhost:3000/${this.props.user.userAvatar}`} alt=""/>
+              <img  src={this.state.currentAvatar ? this.state.currentAvatar : this.props.user.userAvatar} alt=""/>
             </div>
             <div>
               <input
