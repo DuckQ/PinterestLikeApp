@@ -17,7 +17,6 @@ export const login = (userData) => {
       body: JSON.stringify(userData)
     }).then(response => response.json())
       .then(response => {
-        console.log(response)
         if (response.token) {
           const token = response.token;
           localStorage.setItem('jwtToken', token);
