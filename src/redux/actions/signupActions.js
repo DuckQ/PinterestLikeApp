@@ -1,6 +1,6 @@
 export const userSignupRequest = (userData) => {
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/users', {
+    return fetch('https://pinterestlikeapp-server.herokuapp.com/api/users', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -12,6 +12,6 @@ export const userSignupRequest = (userData) => {
 
 export const isUserExist = (identifier) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/users/check/${identifier}`)
+    return fetch(`https://pinterestlikeapp-server.herokuapp.com/api/users/check/${identifier}`)
   }
 }

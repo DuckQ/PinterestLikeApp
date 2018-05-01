@@ -9,7 +9,7 @@ export const setCurrentUser = (user) => {
 
 export const login = (userData) => {
   return (dispatch) => {
-    return fetch('http://localhost:3000/api/auth', {
+    return fetch('https://pinterestlikeapp-server.herokuapp.com/api/auth', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'

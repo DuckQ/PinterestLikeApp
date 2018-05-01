@@ -5,7 +5,7 @@ export const loadImages = (images) => ({
 
 export const startLoadImages = () => {
   return (dispatch) => {
-      return fetch('http://localhost:3000/api/images')
+      return fetch('https://pinterestlikeapp-server.herokuapp.com/api/images')
       .then(response => response.json())
       .then(response => {
         const allImages = [];
@@ -20,7 +20,7 @@ export const startLoadImages = () => {
 // load images with selected tag from search input on user request
 export const startLoadImagesWithTag = (tag) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/api/images/tag/${tag}`)
+    return fetch(`https://pinterestlikeapp-server.herokuapp.com/api/images/tag/${tag}`)
     .then(response => response.json())
     .then(response => {
       const imagesWithTag =[];
@@ -35,6 +35,6 @@ export const startLoadImagesWithTag = (tag) => {
 // load single image info for <PostDetailsPage /> component
 export const loadSingleIMage = (id) => {
   return (dispatch) => {
-    return fetch(`http://localhost:3000/api/images/${id}`)
+    return fetch(`https://pinterestlikeapp-server.herokuapp.com/api/images/${id}`)
   }
 }

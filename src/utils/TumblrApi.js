@@ -59,7 +59,7 @@ export class TumblrApi extends Component {
       // in other case their chain will be broken and we'll not be able to get last timestamp correctly
       setInterval( () => {
         if (x < this.state.structuredData.length) {
-            fetch('http://localhost:3000/api/images', {
+            fetch('https://pinterestlikeapp-server.herokuapp.com/api/images', {
               method: 'post',
               headers: {
                 'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ export class TumblrApi extends Component {
   // It allows us to continue adding new posts from tumblr, that are not in our db yet
   onGetClick() {
     const tag = this.state.tag;
-    fetch(`http://localhost:3000/api/images/last/${tag}`)
+    fetch(`https://pinterestlikeapp-server.herokuapp.com/api/images/last/${tag}`)
     .then(response => response.json())
     .then(response => this.setState({ lastTimestamp: response[0].original_timestamp }))
   }
