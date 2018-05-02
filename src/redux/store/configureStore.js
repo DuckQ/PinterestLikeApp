@@ -6,6 +6,7 @@ import updateImagesReducer from '../reducers/updateImagesReducer';
 import modalReducer from '../reducers/modalReducer';
 import authReducer from '../reducers/authReducer';
 import flashMessage from '../reducers/flashMessage';
+import imageContainerStateReducer from '../reducers/imageContainerStateReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -16,7 +17,8 @@ export default () => {
       updateImages: updateImagesReducer,
       modal: modalReducer,
       auth: authReducer,
-      flashMessage: flashMessage
+      flashMessage,
+      imageContainerState: imageContainerStateReducer
     }), 
     composeEnhancers(applyMiddleware(thunk))
   );

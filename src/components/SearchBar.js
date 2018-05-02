@@ -3,6 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { startLoadImagesWithTag } from '../redux/actions/imagesActions';
 import { startUpdateImages, clearImages, setDefaultPosition } from '../redux/actions/updateImages';
+import { setImageContainerState } from '../redux/actions/checkImageContainerState';
 
 const tags = [
   {
@@ -84,6 +85,7 @@ class SearchBar extends Component {
     this.props.startLoadImagesWithTag(this.state.value)
     .then(() => this.props.startUpdateImages(20, 0));
     this.setState({ value: '' });
+    this.props.setImageContainerState();
   };
 
   onKeyPress(e) {
@@ -93,6 +95,7 @@ class SearchBar extends Component {
       this.props.startLoadImagesWithTag(this.state.value)
       .then(() => this.props.startUpdateImages(20, 0));
       this.setState({ value: '' });
+      this.props.setImageContainerState();
     }
   };
 
@@ -119,4 +122,4 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, { startLoadImagesWithTag, startUpdateImages, clearImages, setDefaultPosition })(SearchBar);
+export default connect(null, { startLoadImagesWithTag, startUpdateImages, clearImages, setDefaultPosition, setImageContainerState })(SearchBar);

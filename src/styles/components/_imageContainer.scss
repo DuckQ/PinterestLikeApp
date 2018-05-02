@@ -1,0 +1,14 @@
+.hide {
+  visibility: hidden;
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.loading.hide {
+  display: none;
+}
