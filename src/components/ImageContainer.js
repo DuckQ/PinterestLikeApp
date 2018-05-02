@@ -83,7 +83,7 @@ export class ImageContainer extends Component {
     );
 
     return (
-      <div id="image-container-component">
+      <div>
         <div className={!this.props.componentIsReady ? "hide" : undefined}>
           {masonry}
         </div>
