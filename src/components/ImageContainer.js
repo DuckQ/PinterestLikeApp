@@ -27,11 +27,14 @@ export class ImageContainer extends Component {
     window.addEventListener('scroll', this.handleScroll);
     this.timer = setInterval(() => 
       this.checkIfComponentIsReady(), 500);
+    this.timer2 = setInterval(() => 
+      this.checkIfNotStandartHeight(), 500)
   };
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     clearInterval(this.timer);
+    clearInterval(this.timer2);
     this.props.setImageContainerState();
   };
 
@@ -41,6 +44,15 @@ export class ImageContainer extends Component {
     if (document.body.offsetHeight > window.innerHeight + window.pageYOffset) {
       // if component is ready, it changes state to true
       this.props.setImageContainerState()
+    }
+  };
+
+  // In case if user has large height of viewport and scroll event cant be applied
+  // then it loads more images manually
+  checkIfNotStandartHeight() {
+    if ((window.innerHeight + window.pageYOffset ) >= document.body.offsetHeight ) { 
+      this.props.startUpdateImages(null, this.props.position);
+      this.props.updatePosition();
     }
   }
 
@@ -71,7 +83,7 @@ export class ImageContainer extends Component {
     );
 
     return (
-      <div>
+      <div id="image-container-component">
         <div className={!this.props.componentIsReady ? "hide" : undefined}>
           {masonry}
         </div>
