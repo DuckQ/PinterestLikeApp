@@ -3,7 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
 import { startLoadImagesWithTag } from '../redux/actions/imagesActions';
 import { startUpdateImages, clearImages, setDefaultPosition } from '../redux/actions/updateImages';
-import { setImageContainerState } from '../redux/actions/checkImageContainerState';
+import { setImageContainerState, setFetchState } from '../redux/actions/checkImageContainerState';
 
 const tags = [
   {
@@ -80,20 +80,32 @@ class SearchBar extends Component {
   };
 
   onSuggestionSelected() {
+    // clear everything(that linked to image displaying) in state before new request
+    this.props.setFetchState(false);
     this.props.clearImages();
     this.props.setDefaultPosition();
+    // do a request with specific tag
     this.props.startLoadImagesWithTag(this.state.value)
-    .then(() => this.props.startUpdateImages(20, 0));
+    .then(() => {
+      // display 20 images after request was finished
+      this.props.startUpdateImages(20, 0);
+      // track state of thee request to prevent unwanted image loading in <ImageContainer />
+      this.props.setFetchState(true);
+    });
     this.setState({ value: '' });
     this.props.setImageContainerState();
   };
 
   onKeyPress(e) {
     if (e.key === "Enter") {
+      this.props.setFetchState(false);
       this.props.clearImages();
       this.props.setDefaultPosition();
       this.props.startLoadImagesWithTag(this.state.value)
-      .then(() => this.props.startUpdateImages(20, 0));
+      .then(() => {
+        this.props.startUpdateImages(20, 0);
+        this.props.setFetchState(true);
+      });
       this.setState({ value: '' });
       this.props.setImageContainerState();
     }
@@ -122,4 +134,4 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, { startLoadImagesWithTag, startUpdateImages, clearImages, setDefaultPosition, setImageContainerState })(SearchBar);
+export default connect(null, { startLoadImagesWithTag, startUpdateImages, clearImages, setDefaultPosition, setImageContainerState, setFetchState })(SearchBar);

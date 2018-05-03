@@ -49,8 +49,9 @@ export class ImageContainer extends Component {
 
   // In case if user has large height of viewport and scroll event cant be applied
   // then it loads more images manually
+  // It also checks if request was finished, to ensure that function wont be triggered early
   checkIfNotStandartHeight() {
-    if ((window.innerHeight + window.pageYOffset ) >= document.body.offsetHeight ) { 
+    if ((window.innerHeight + window.pageYOffset ) >= document.body.offsetHeight && this.props.fetchIsFinished) { 
       this.props.startUpdateImages(null, this.props.position);
       this.props.updatePosition();
     }
@@ -99,7 +100,8 @@ const mapStateToProps = (state) => {
   return {
     images: state.updateImages.images,
     position: state.updateImages.position,
-    componentIsReady: state.imageContainerState.componentIsReady
+    componentIsReady: state.imageContainerState.componentIsReady,
+    fetchIsFinished: state.imageContainerState.fetchIsFinished
   };
 };
 
