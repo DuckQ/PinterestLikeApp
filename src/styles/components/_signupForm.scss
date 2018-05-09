@@ -2,7 +2,9 @@
   height: 100%;
   width: 100%;
 }
-
+p {
+  margin: 2rem 0 1rem 0;
+}
 .form-wrapper__title {
   text-align: center;
   color: grey;
@@ -22,7 +24,7 @@
   margin: 0 0 1.5rem;
 }
 
-.form-wrapper form *:focus {
+.form-wrapper *:focus {
   outline: none;
   box-shadow: 0 0 0 0.1rem rgb(87, 164, 252);
 }
@@ -35,4 +37,8 @@
   color: white;
   font-weight: bold;
   border: none
+}
+
+.form-wrapper form button:hover {
+  box-shadow: inset 0 0 1rem black;
 }

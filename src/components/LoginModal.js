@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { setIsLogining } from '../redux/actions/modalActions';
+import { login } from '../redux/actions/authActions';
 
 const LoginModal = (props) => {
   return (
@@ -14,7 +15,10 @@ const LoginModal = (props) => {
         closeTimeoutMS={200}
         className="modal"
       >
-        <LoginForm />
+      <div className="form-wrapper" >
+        <h3 className="form-wrapper__title" >Log in here</h3>
+        <LoginForm login={props.login} setIsLogining={props.setIsLogining} />
+      </div>
       </Modal>
   )
 }
@@ -25,4 +29,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { setIsLogining })(LoginModal)
+export default connect(mapStateToProps, { setIsLogining, login })(LoginModal)

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import validateInput from '../validation/login';
-import { connect } from 'react-redux';
-import { login } from '../redux/actions/authActions';
-import { setIsLogining } from '../redux/actions/modalActions';
 
 export class LoginForm extends Component {
   constructor(props) {
@@ -60,7 +57,9 @@ export class LoginForm extends Component {
         if (response.errors) {
           this.setState ({ errors: response.errors, isLoading: false });
         } else {
-          this.props.setIsLogining();
+          // check if parent component passes required props
+          this.props.setIsLogining && this.props.setIsLogining();
+          this.props.setIsLoginRequired && this.props.setIsLoginRequired();
         }
       });
     }
@@ -70,8 +69,6 @@ export class LoginForm extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="form-wrapper" >
-        <h3 className="form-wrapper__title" >Log in here</h3>
         <form onSubmit={this.onSubmit} >
           <div> 
             <input
@@ -97,9 +94,8 @@ export class LoginForm extends Component {
           { errors.form && <div className="error-msg">{errors.form}</div> }
           <button type="submit" disabled={ this.state.isLoading } >Log in</button>
         </form>
-      </div>
     )
   }
 }
 
-export default connect(null, { setIsLogining, login })(LoginForm);
+export default LoginForm;

@@ -27,3 +27,24 @@
   font-size: 2rem;
   border-radius: 0.5rem;
 }
+
+.modal *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.1rem rgb(87, 164, 252);
+}
+
+.modal button {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  background-color: white;
+  color: rgb(10, 0, 151);
+  font-weight: bold;
+  border: 0.1rem solid rgb(10, 0, 151);
+}
+
+.modal button:hover {
+  box-shadow: inset 0 0 10rem  rgb(10, 0, 151);
+  color: white;
+}
+

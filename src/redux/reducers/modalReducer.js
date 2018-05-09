@@ -1,6 +1,7 @@
 const initialState = {
   isRegistering: false,
   isLogining: false,
+  isLoginRequired: false,
   showFlashMessage: false
 };
 
@@ -15,6 +16,11 @@ const ModalReducer = (state = initialState, action = {}) => {
     return {
       ...state, 
       isLogining: !state.isLogining
+    };
+    case 'CALL_LOGIN_REQUIRED_FORM':
+    return {
+      ...state, 
+      isLoginRequired: !state.isLoginRequired
     };
     case 'CALL_FLASHMESSAGE_FORM':
     return {

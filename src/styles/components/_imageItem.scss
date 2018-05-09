@@ -17,13 +17,37 @@
   position: absolute;
   bottom: 1rem;
   left: 1rem;
-  background: $red;
+  background: $blue;
   border: solid 0;
   border-radius: 0.5rem;
   padding: 0.5rem;
   color: white;
   font-weight: bold;
   font-size: $s-size;
+}
+
+.pushpin-block {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: $blue;
+  border: 0 solid;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: $m-size;
+}
+
+.pushpin-block.saved {
+  cursor: default;
+}
+
+.pushpin {
+  width: 75%;
+  margin: 0 auto
 }
 
 .post-link {
@@ -45,6 +69,9 @@
     display: inherit;
   }
   .text-block {
+    display: inherit;
+  }
+  .pushpin-block {
     display: inherit;
   }
 }
