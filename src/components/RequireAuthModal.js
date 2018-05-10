@@ -15,7 +15,6 @@ class RequireAuthModal extends React.Component {
 
   onClick() {
     this.props.setIsLoginRequired();
-    //this.props.setIsRegistering();
   }
 
   render() {

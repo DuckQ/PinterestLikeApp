@@ -1,8 +1,11 @@
 .container {
   margin: 0 auto;
+  margin-bottom: 5rem;
   width: 50%;
 }
-
+.user-info-form{
+  border-bottom: 0.1rem solid
+}
 .title {
   text-align: center;
   color: grey;
@@ -19,3 +22,10 @@
   width: 40%;
 }
 
+.no-images {
+  text-align: center;
+  padding: 4rem 0;
+  color: #ccc;
+  font-weight: bold;
+  font-size: $xl-size;
+}

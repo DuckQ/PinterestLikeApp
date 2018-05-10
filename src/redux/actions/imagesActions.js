@@ -9,9 +9,16 @@ export const startLoadImages = () => {
       .then(response => response.json())
       .then(response => {
         const allImages = [];
-        response.images.map(obj => {
-          allImages.push(obj)
+        // shuffle images
+        response.images
+        .map((a) => ({sort: Math.random(), value: a}))
+        .sort((a, b) => a.sort - b.sort)
+        .map(obj => {
+          allImages.push(obj.value)
         });
+        //  response.images.map(obj => {
+        //   allImages.push(obj)
+        // });
         dispatch(loadImages(allImages));
       })
   }
@@ -24,9 +31,16 @@ export const startLoadImagesWithTag = (tag) => {
     .then(response => response.json())
     .then(response => {
       const imagesWithTag =[];
-      response.images.map(obj => {
-        imagesWithTag.push(obj)
+      // shuffle images
+      response.images
+      .map((a) => ({sort: Math.random(), value: a}))
+      .sort((a, b) => a.sort - b.sort)
+      .map(obj => {
+        imagesWithTag.push(obj.value)
       });
+      //  response.images.map(obj => {
+      //   imagesWithTag.push(obj)
+      // });
       dispatch(loadImages(imagesWithTag));
     })
   }

@@ -146,6 +146,7 @@ class UpdateUserInfoForm extends Component {
     const { errors, isLoading } = this.state;
     
     return (
+    <div className="user-info-form">
       <div className="container" >
         <h2 className="title" >Change your personal information</h2>
         <div className="container__content" >
@@ -213,6 +214,7 @@ class UpdateUserInfoForm extends Component {
           </div>
         </div>
       </div>
+    </div>
     )
   }
 }

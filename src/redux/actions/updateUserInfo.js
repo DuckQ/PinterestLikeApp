@@ -30,7 +30,7 @@ export const updateUserInfo = (id, updates = defaultUpdates, token) => {
     formData.append('userAvatar', document.getElementById('userAvatar').files[0]);
   };
   return (dispatch) => {
-    return fetch("http://localhost:3000/api/users/" + id, {
+    return fetch("https://pinterestlikeapp-server.herokuapp.com/api/users/" + id, {
       headers: {
         authorization: `Bearer ${token}`
       },

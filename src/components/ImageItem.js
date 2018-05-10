@@ -11,7 +11,7 @@ const ImageItem = ({id, _id, image_url, onClick, savedImage}) => {
 
   const imageNotSaved = (
     <div className="pushpin-block" onClick={onClick}>
-      <div className="pushpin"><img src="/files/pushpin.svg" alt=""/></div>
+      <div className="pushpin"><img src="/files/pushpin.svg" alt=""/><img src="/src/files/pushpin.svg" alt=""/></div>
       <div className="pushpin-text">save</div>
     </div>
   );
@@ -24,7 +24,7 @@ const ImageItem = ({id, _id, image_url, onClick, savedImage}) => {
         </div>
         <Link to={`/post/${id || _id}`}><div className="post-link"></div></Link>
         <a href={image_url} target="_blank"><div className="text-block">Original image</div></a>
-        {savedImage !== undefined && false ? imageSaved : imageNotSaved}
+        {savedImage !== undefined && !!savedImage ? imageSaved : imageNotSaved}
       </div>
     </div>
   )

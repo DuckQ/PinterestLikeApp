@@ -4,6 +4,7 @@ import { updateUserInfo } from '../redux/actions/updateUserInfo';
 import UpdateUserInfoForm from './UpdateUserInfoForm';
 import { logout, setCurrentUser } from '../redux/actions/authActions';
 import PageNotFound from './PageNotFound';
+import SavedImagesByUser from './SavedImagesByUser';
 
 class UserProfilePage extends Component {
   constructor(props) {
@@ -28,7 +29,9 @@ class UserProfilePage extends Component {
 
     return (
       <div>
-        { this.state.isUserLegit ? <UpdateUserInfoForm setCurrentUser={this.props.setCurrentUser} updateUserInfo={this.props.updateUserInfo} user={user} logout={this.props.logout} /> : <PageNotFound />}
+        {this.state.isUserLegit ?
+          <div> <UpdateUserInfoForm setCurrentUser={this.props.setCurrentUser} updateUserInfo={this.props.updateUserInfo} user={user} logout={this.props.logout} /> <SavedImagesByUser /> </div> :
+          <PageNotFound />}
       </div>
     )
   }
