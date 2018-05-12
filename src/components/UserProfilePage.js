@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { updateUserInfo } from '../redux/actions/updateUserInfo';
 import UpdateUserInfoForm from './UpdateUserInfoForm';
@@ -28,11 +28,11 @@ class UserProfilePage extends Component {
     const { user } = this.props.auth;
 
     return (
-      <div>
+      <Fragment>
         {this.state.isUserLegit ?
           <div> <UpdateUserInfoForm setCurrentUser={this.props.setCurrentUser} updateUserInfo={this.props.updateUserInfo} user={user} logout={this.props.logout} /> <SavedImagesByUser /> </div> :
           <PageNotFound />}
-      </div>
+      </Fragment>
     )
   }
 }

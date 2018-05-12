@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { setShowFlashMessage } from '../redux/actions/modalActions';
 
@@ -16,10 +16,10 @@ class FlashMessage extends Component {
   render() {
     const {type, text} = this.props.flashMessage;
     return (
-      <div>
+      <Fragment>
         {text}
         <button onClick={this.onClick} className="close">Ok</button>
-      </div>
+      </Fragment>
     )
   }
 }

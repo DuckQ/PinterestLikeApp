@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 
 export class TumblrApi extends Component {
@@ -88,10 +88,10 @@ export class TumblrApi extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <button onClick={this.onAddClick} > add to db </button>
         <button onClick={this.onGetClick} > get last timestamp</button>
-      </div>
+      </Fragment>
     )
   }
 }

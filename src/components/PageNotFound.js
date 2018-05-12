@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'; 
 
 const PageNotFound = () => (
-  <div>
+  <Fragment>
     404 — <Link to="/">Go Home</Link>
-  </div>
+  </Fragment>
 );
 
 export default PageNotFound;

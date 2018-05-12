@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { loadSingleIMage } from '../redux/actions/imagesActions';
 import PageNotFound from './PageNotFound';
@@ -55,7 +55,7 @@ class PostDetailesPage extends Component {
       </div>
     )
     return (
-      <div> {this.state.isIdExist ? pageContent : <PageNotFound /> } </div>
+      <Fragment> {this.state.isIdExist ? pageContent : <PageNotFound /> } </Fragment>
     )
   }
 }

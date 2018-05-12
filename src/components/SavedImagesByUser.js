@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import StackGrid from "react-stack-grid";
 import Masonry from 'react-masonry-component';
@@ -43,10 +43,10 @@ export class ImageContainer extends Component {
     );
 
     return (
-      <div>
+      <Fragment>
         {this.props.isAuthenticated && this.props.user.savedImages.length > 0 ? 
           <div>{masonry}</div> : <div className="no-images"> You have not saved images yet.</div>}
-      </div>
+      </Fragment>
     )
   }
 }

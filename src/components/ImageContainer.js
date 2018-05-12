@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import StackGrid from "react-stack-grid";
 import Masonry from 'react-masonry-component';
@@ -113,14 +113,14 @@ export class ImageContainer extends Component {
     );
 
     return (
-      <div>
+      <Fragment>
         <div className={!this.props.componentIsReady ? "hide" : undefined}>
           {masonry}
         </div>
         <div className={`loading ${this.props.componentIsReady && "hide"}`} >
           <PageIsLoading />
         </div>
-      </div>
+      </Fragment>
     )
   }
 }
